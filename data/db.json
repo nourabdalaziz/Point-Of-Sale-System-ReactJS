@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "code": 1,
+      "name": "Apple",
+      "category": "Fruits",
+      "image": "https://bellavitashop.co.uk/6288-large_default/red-apples-500g.jpg"
+    },
+    {
+      "code": 2,
+      "name": "Orange",
+      "category": "Fruits",
+      "image": "https://produits.bienmanger.com/33285-0w470h470_Organic_Fresh_Oranges_From_Italy_New_Hall.jpg"
+    },
+    {
+      "code": 3,
+      "name": "Strawberry",
+      "category": "Fruits",
+      "image": "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/streams/2014/July/140707/1D274906288130-beauty-uses-strawberries.jpg"
+    },
+
+    {
+      "code": 4,
+      "name": "Banana",
+      "category": "Fruits",
+      "image": "https://cdn.gourmetegypt.com/media/catalog/product/cache/2b4d21b90ad5abb98380bc0a709a4ac8/b/a/banana.jpg"
+    },
+    {
+      "code": 5,
+      "name": "Bluberry",
+      "category": "Fruits",
+      "image": "https://coldstorage.com.sg/media/catalog/product/085403_3738f1d09fb3904250c3d2150c17477d.jpg"
+    }
+  ],
+  "categories": [
+    {
+      "name": "fruits"
+    },
+    {
+      "name": "vegetables"
+    },
+    {
+      "name": "drinks"
+    },
+    {
+      "name": "sweets"
+    },
+    {
+      "name": "condiments"
+    }
+  ]
+}
