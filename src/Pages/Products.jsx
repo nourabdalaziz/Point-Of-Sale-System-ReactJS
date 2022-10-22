@@ -2,6 +2,7 @@ import useFetch from "../CustomHooks/useFetch.jsx";
 import { useState } from "react";
 import FilterableTable from "../Components/FilterableTable.jsx";
 import LoadingSpinner from "../Components/LoadingSpinner.jsx";
+import Button from "../Components/Button.jsx";
 
 const Products = () => {
   const [products, isLoading] = useFetch("http://localhost:5000/products");
@@ -15,20 +16,25 @@ const Products = () => {
   return (
     <div>
       {isLoading ? (
-       <LoadingSpinner />
+        <LoadingSpinner />
       ) : (
         products && (
           <>
-            <input
-              type="search"
-              onChange={(e) => setSearchedValue(e.target.value)}
-            />
-            <FilterableTable
-              headers={HEADERS}
-              dataInTable={products}
-              searchedValue={searchedValue}
-              editProduct={editProduct}
-            />
+            <div className="main-wrapper-products">
+              <div className="search-and-button">
+                <Button buttonText="Add Product" />
+                <input
+                  type="search"
+                  onChange={(e) => setSearchedValue(e.target.value)}
+                />
+              </div>
+              <FilterableTable
+                headers={HEADERS}
+                dataInTable={products}
+                searchedValue={searchedValue}
+                editProduct={editProduct}
+              />{" "}
+            </div>
           </>
         )
       )}
