@@ -42,19 +42,19 @@
 }
 
 .pagination li:first-child {
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .pagination li:first-child button {
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .pagination li:last-child {
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .pagination li:last-child button {
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
