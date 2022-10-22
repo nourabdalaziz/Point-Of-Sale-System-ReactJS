@@ -3,6 +3,7 @@ table {
   border-collapse: collapse;
   width: 70%;
   border-radius: 10px;
+  table-layout: fixed;
 }
 
 table td,
@@ -33,7 +34,27 @@ i {
 i:hover {
   cursor: pointer;
 }
+
+.table-body {
+  height: 300px;
+}
 .product_image {
   height: 50px;
   width: 50px;
+}
+.table-component {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.main-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
