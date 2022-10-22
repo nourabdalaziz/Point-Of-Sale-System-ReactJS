@@ -1,6 +1,7 @@
 import useFetch from "../CustomHooks/useFetch.jsx";
 import { useState } from "react";
 import FilterableTable from "../Components/FilterableTable.jsx";
+import LoadingSpinner from "../Components/LoadingSpinner.jsx";
 
 const Products = () => {
   const [products, isLoading] = useFetch("http://localhost:5000/products");
@@ -14,7 +15,7 @@ const Products = () => {
   return (
     <div>
       {isLoading ? (
-        <h2>Loading...</h2>
+       <LoadingSpinner />
       ) : (
         products && (
           <>
