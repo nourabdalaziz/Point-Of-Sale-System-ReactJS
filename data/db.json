@@ -1,35 +1,54 @@
 {
   "products": [
     {
-      "code": 1,
-      "name": "Apple",
-      "category": "Fruits",
-      "image": "https://bellavitashop.co.uk/6288-large_default/red-apples-500g.jpg"
+      "code": "1",
+      "name": "Lemon",
+      "category": "Vegetables",
+      "image": "https://purepng.com/public/uploads/large/purepng.com-lemonlemonfruittastyyellowfoodadd-331522507459yya95.png",
+      "id": "9"
     },
     {
-      "code": 2,
-      "name": "Orange",
+      "code": "2",
+      "name": "Banana",
       "category": "Fruits",
-      "image": "https://produits.bienmanger.com/33285-0w470h470_Organic_Fresh_Oranges_From_Italy_New_Hall.jpg"
+      "image": "https://purepng.com/public/uploads/large/three-bananas-uv1.png",
+      "id": "82f39b5d-fb43-486e-8efc-747b57f19f7e"
     },
     {
-      "code": 3,
+      "code": "3",
       "name": "Strawberry",
       "category": "Fruits",
-      "image": "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/streams/2014/July/140707/1D274906288130-beauty-uses-strawberries.jpg"
+      "image": "https://purepng.com/public/uploads/large/purepng.com-strawberrystrawberrygenus-fragariastrawberriesfruitbotanical-berrybright-red-colorjuicy-texture-1701527398814xm3ju.png",
+      "id": "2b86eb4d-732d-4eb2-a7c1-9e2f13fe2516"
+    },
+    {
+      "code": "4",
+      "name": "Blueberry",
+      "category": "Fruits",
+      "image": "https://purepng.com/public/uploads/large/purepng.com-blueberryberryfruitdeliciousdrawingblueberry-33152234542505pip.png",
+      "id": "7cf7996d-1d1b-447f-b931-05fdfd356570"
+    },
+    {
+      "code": "5",
+      "name": "Oranges",
+      "category": "Fruits",
+      "image": "https://purepng.com/public/uploads/large/purepng.com-orange-orangesorangefruitbitter-orangeorangesclip-art-1701527336951ldrwe.png",
+      "id": "5535564a-d007-43b4-9361-f2a5ccb7362a"
     },
 
     {
-      "code": 4,
-      "name": "Banana",
-      "category": "Fruits",
-      "image": "https://cdn.gourmetegypt.com/media/catalog/product/cache/2b4d21b90ad5abb98380bc0a709a4ac8/b/a/banana.jpg"
+      "code": "6",
+      "name": "Chocolate Cake",
+      "category": "Sweets",
+      "image": "https://purepng.com/public/uploads/large/purepng.com-chocolate-cakechocolatechocolate-cakecakechocolate-gateausweet-1411527232105biakj.png",
+      "id": "6a0ac1c9-ab3b-479b-a664-bb27e2718843"
     },
     {
-      "code": 5,
-      "name": "Bluberry",
-      "category": "Fruits",
-      "image": "https://coldstorage.com.sg/media/catalog/product/085403_3738f1d09fb3904250c3d2150c17477d.jpg"
+      "code": "7",
+      "name": "Potato",
+      "category": "Vegetables",
+      "image": "https://purepng.com/public/uploads/large/purepng.com-potatopotatofood-cropsvegetablepotatos-1701527311051rn2f4.png",
+      "id": "157339c2-ab89-406d-8414-69bca7f3709b"
     }
   ],
   "categories": [
