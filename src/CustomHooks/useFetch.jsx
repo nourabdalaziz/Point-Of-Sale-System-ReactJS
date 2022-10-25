@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useFetch = (url) => {
+const useFetch = (url, needToRefreshData) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -28,7 +28,7 @@ const useFetch = (url) => {
         });
     }, 1000);
     return () => abortCont.abort();
-  }, [url]);
+  }, [url, needToRefreshData]);
 
   return [data, isLoading];
 };
