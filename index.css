@@ -45,12 +45,25 @@ h2 {
   justify-content: space-between;
   align-items: center;
   margin-top: 1rem;
-
 }
-.add-button-element{
+.add-button-element {
   padding: 10px 10px;
   border-radius: 5px;
   background-color: #646cff;
   color: #fff;
-  border:none;
+  border: none;
+}
+input[type="search"] {
+  width: 20%;
+  height: 30px;
+  border: 1px solid #c4c2c2;
+  font-size: 12px;
+  text-align: left;
+  color: black;
+  background-color: transparent;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 5px;
+}
+input[type="search"]::placeholder {
+  opacity: 30%;
 }
