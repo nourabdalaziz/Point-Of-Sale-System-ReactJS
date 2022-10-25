@@ -1,9 +1,10 @@
-import { useState, useEffect,useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import useFetch from "../CustomHooks/useFetch.jsx";
 import FilterableTable from "../Components/FilterableTable.jsx";
 import LoadingSpinner from "../Components/LoadingSpinner.jsx";
 import Modal from "../Components/Modal.jsx";
 import AddProductForm from "../Components/AddProductForm.jsx";
+import UpdateProductForm from "../Components/UpdateProductForm.jsx";
 
 const Products = () => {
   const [needToRefreshData, setNeedToRefreshData] = useState(false);
@@ -82,6 +83,19 @@ const Products = () => {
                       closeModal={toggleShowAddProductModal}
                       setProductsData={setProductsData}
                       productsData={productsData}
+                    />
+                  </div>
+                </Modal>
+              ) : null}
+              {showUpdateProductModal ? (
+                <Modal>
+                  <div>
+                    <UpdateProductForm
+                      closeModal={toggleShowUpdateProductModal}
+                      setNeedToRefreshData={setNeedToRefreshData}
+                      needToRefreshData={needToRefreshData}
+                      productsData={productsData}
+                      id={idToUpdate.current}
                     />
                   </div>
                 </Modal>
