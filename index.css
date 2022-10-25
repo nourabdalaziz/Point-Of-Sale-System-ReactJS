@@ -26,17 +26,31 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-
-.main-wrapper-products{
-  width:100vw;
-  display: flex;
-  flex-direction: column;justify-content:center;align-items:center;
-  margin:0;padding:0;
+h2 {
+  color: #646cff;
 }
-.search-and-button{
+.main-wrapper-products {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.search-and-button {
   padding-top: 1rem;
-  width:70%;
+  width: 70%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 1rem;
+
+}
+.add-button-element{
+  padding: 10px 10px;
+  border-radius: 5px;
+  background-color: #646cff;
+  color: #fff;
+  border:none;
 }
