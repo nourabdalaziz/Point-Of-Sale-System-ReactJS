@@ -31,7 +31,6 @@ const FilterableTable = ({
     }
     return res;
   });
-  
   if (searchedValue !== null && searchedValue !== "") {
     currentItems = filteredRows;
     totalItems = filteredRows.length;
@@ -41,7 +40,7 @@ const FilterableTable = ({
   for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
-
+  
   const capetalizeFirstLetter = (word) => {
     return word.charAt(0).toUpperCase() + word.slice(1);
   };
