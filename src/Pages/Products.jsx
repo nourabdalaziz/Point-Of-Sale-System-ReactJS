@@ -1,16 +1,51 @@
+import { useState, useEffect,useRef } from "react";
 import useFetch from "../CustomHooks/useFetch.jsx";
-import { useState } from "react";
 import FilterableTable from "../Components/FilterableTable.jsx";
 import LoadingSpinner from "../Components/LoadingSpinner.jsx";
-import Button from "../Components/Button.jsx";
+import Modal from "../Components/Modal.jsx";
+import AddProductForm from "../Components/AddProductForm.jsx";
 
 const Products = () => {
-  const [products, isLoading] = useFetch("http://localhost:5000/products");
+  const [needToRefreshData, setNeedToRefreshData] = useState(false);
+  const [products, isLoading] = useFetch(
+    "http://localhost:5000/products",
+    needToRefreshData
+  );
+  const [productsData, setProductsData] = useState([]);
   const [searchedValue, setSearchedValue] = useState("");
-  const HEADERS = ["code", "name", "category", "image"];
+  const [showAddProductModal, setShowAddProductModal] = useState(false);
+  const [showUpdateProductModal, setShowUpdateProductModal] = useState(false);
 
-  const editProduct = (id) => {
-    console.log(id, ".. hello from product editing function");
+  const HEADERS = ["code", "name", "category", "image"];
+  const idToUpdate = useRef(0);
+
+  useEffect(() => {
+    console.log(productsData);
+    setProductsData(products);
+  }, [products]);
+
+  const handleDeleteProduct = (productID) => {
+    console.log(productID, "..");
+    fetch(`http://localhost:5000/products/${productID}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setNeedToRefreshData(!needToRefreshData);
+        console.log(res);
+      });
+  };
+
+  const toggleShowAddProductModal = () => {
+    setShowAddProductModal(!showAddProductModal);
+  };
+
+  const toggleShowUpdateProductModal = (id) => {
+    idToUpdate.current = id;
+    setShowUpdateProductModal(!showUpdateProductModal);
   };
 
   return (
@@ -18,11 +53,16 @@ const Products = () => {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        products && (
+        productsData && (
           <>
             <div className="main-wrapper-products">
               <div className="search-and-button">
-                <Button buttonText="Add Product" />
+                <button
+                  className="add-button-element"
+                  onClick={() => toggleShowAddProductModal()}
+                >
+                  Add Product
+                </button>{" "}
                 <input
                   type="search"
                   onChange={(e) => setSearchedValue(e.target.value)}
@@ -30,10 +70,22 @@ const Products = () => {
               </div>
               <FilterableTable
                 headers={HEADERS}
-                dataInTable={products}
+                dataInTable={productsData}
                 searchedValue={searchedValue}
-                editProduct={editProduct}
-              />{" "}
+                toggleShowUpdateProductModal={toggleShowUpdateProductModal}
+                deleteProduct={handleDeleteProduct}
+              />
+              {showAddProductModal ? (
+                <Modal>
+                  <div>
+                    <AddProductForm
+                      closeModal={toggleShowAddProductModal}
+                      setProductsData={setProductsData}
+                      productsData={productsData}
+                    />
+                  </div>
+                </Modal>
+              ) : null}
             </div>
           </>
         )
