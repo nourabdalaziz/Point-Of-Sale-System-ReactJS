@@ -64,10 +64,11 @@ const Products = () => {
                 >
                   Add Product
                 </button>{" "}
-                <input
-                  type="search"
-                  onChange={(e) => setSearchedValue(e.target.value)}
-                />
+                  <input
+                    type="search"
+                    placeholder=" Search .. "
+                    onChange={(e) => setSearchedValue(e.target.value)}
+                  />
               </div>
               <FilterableTable
                 headers={HEADERS}
