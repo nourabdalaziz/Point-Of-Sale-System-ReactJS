@@ -1,0 +1,68 @@
+.input_field,
+.select-field {
+  width: 40%;
+  height: 30px;
+  border: 1px solid #c4c2c2;
+  font-size: 12px;
+  text-align: left;
+  color: black;
+  background-color: transparent;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 5px;
+}
+.select-field {
+  width: 42%;
+}
+.select-option {
+  color: black;
+}
+.main-input-container {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+.input-container {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.2rem;
+}
+.fields_label {
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-size: xx-small;
+  margin-left: 1rem;
+  margin-top: 0;
+  height: 0.2rem;
+  width: fit-content;
+}
+.form-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+.submit-btn {
+  margin-left: 1rem;
+  padding: 6px 8px;
+  border-radius: 5px;
+  background-color: #646cff;
+  color: #fff;
+  border: 1px solid #646cff;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  margin-right: 1rem;
+  padding: 6px 8px;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #646cff;
+  border: 1px solid #646cff;
+  cursor: pointer;
+}
