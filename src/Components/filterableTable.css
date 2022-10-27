@@ -9,7 +9,6 @@ table {
 table td,
 table th {
   border: 1px solid #ddd;
-  padding: 8px;
   text-align: center;
 }
 
@@ -39,8 +38,8 @@ i:hover {
   height: 300px;
 }
 .product_image {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
 }
 .table-component {
   width: 100%;
