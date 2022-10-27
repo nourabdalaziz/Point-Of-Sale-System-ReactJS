@@ -29,7 +29,7 @@ h1 {
 h2 {
   color: #646cff;
 }
-.main-wrapper-products {
+.main-wrapper-products,.main-wrapper-categories {
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -52,6 +52,7 @@ h2 {
   background-color: #646cff;
   color: #fff;
   border: none;
+  cursor: pointer;
 }
 input[type="search"] {
   width: 20%;
