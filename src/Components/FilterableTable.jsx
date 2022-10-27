@@ -6,21 +6,36 @@ const FilterableTable = ({
   headers,
   dataInTable,
   searchedValue,
-  toggleShowUpdateProductModal,
-  deleteProduct,
+  toggleShowUpdateModal,
+  deleteItem,
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3;
+  const itemsPerPage = 5;
   let currentItems = dataInTable;
   const pageNumbers = [];
   let totalItems = dataInTable.length;
 
+  function isURL(str) {
+    var pattern = new RegExp(
+      "^(https?:\\/\\/)?" + // protocol
+        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+        "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+        "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+        "(\\#[-a-z\\d_]*)?$",
+      "i"
+    );
+    return !!pattern.test(str);
+  }
+
   const filteredRows = dataInTable.filter((row) => {
     let res = false;
     let vals = Object.values(row);
+    //pop the id(its value contains letters and numbers, which cause problem when searching)
     vals.pop();
-    vals.pop();
+
     for (const val of vals) {
+      if (isURL(val)) return false;
       res =
         !searchedValue.length ||
         val
@@ -40,7 +55,7 @@ const FilterableTable = ({
   for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
-  
+
   const capetalizeFirstLetter = (word) => {
     return word.charAt(0).toUpperCase() + word.slice(1);
   };
@@ -83,12 +98,12 @@ const FilterableTable = ({
                     <td>
                       <i
                         className="fa-solid fa-trash"
-                        onClick={() => deleteProduct(item.id)}
+                        onClick={() => deleteItem(item.id)}
                       ></i>
                       <i
                         className="fa-solid fa-pen-to-square"
                         onClick={() => {
-                          toggleShowUpdateProductModal(item.id);
+                          toggleShowUpdateModal(item.id);
                           console.log(item.id);
                         }}
                       ></i>
