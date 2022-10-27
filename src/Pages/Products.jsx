@@ -74,8 +74,8 @@ const Products = () => {
                 headers={HEADERS}
                 dataInTable={productsData}
                 searchedValue={searchedValue}
-                toggleShowUpdateProductModal={toggleShowUpdateProductModal}
-                deleteProduct={handleDeleteProduct}
+                toggleShowUpdateModal={toggleShowUpdateProductModal}
+                deleteItem={handleDeleteProduct}
               />
               {showAddProductModal ? (
                 <Modal>
