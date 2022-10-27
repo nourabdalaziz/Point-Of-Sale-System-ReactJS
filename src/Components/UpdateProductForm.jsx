@@ -1,6 +1,8 @@
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormElementControl from "./FormElementControl.jsx";
+import useFetch from "../CustomHooks/useFetch.jsx";
+import useCUD from "../CustomHooks/useCUD.jsx";
 
 const UpdateProductForm = ({
   closeModal,
@@ -9,6 +11,8 @@ const UpdateProductForm = ({
   productsData,
   id,
 }) => {
+  const [options] = useFetch(" http://localhost:5000/categories");
+
   const selectedRow = productsData.filter((item) => item.id === id)[0];
   const initialValues = {
     code: selectedRow.code,
@@ -35,13 +39,14 @@ const UpdateProductForm = ({
       category: values.category,
       image: values.image,
     };
-    fetch(`http://localhost:5000/products/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-      body: JSON.stringify(dataToSend),
-    })
+
+    const prom = useCUD(
+      `http://localhost:5000/products/`,
+      "PUT",
+      dataToSend,
+      id
+    );
+    prom
       .then((res) => res.json())
       .then(() => {
         closeModal();
@@ -62,13 +67,24 @@ const UpdateProductForm = ({
               src={selectedRow.image}
               style={{ height: "100px", width: "100px" }}
             />
-            <FormElementControl control="input" label="Product Code" name="code" />
-            <FormElementControl control="input" label="Product Name" name="name" />
             <FormElementControl
               control="input"
-              label="Product Category"
-              name="category"
+              label="Product Code"
+              name="code"
             />
+            <FormElementControl
+              control="input"
+              label="Product Name"
+              name="name"
+            />
+            {options && (
+              <FormElementControl
+                control="select"
+                label="Product Category"
+                name="category"
+                options={options}
+              />
+            )}
             <FormElementControl
               control="input"
               label="Product Image URL"
