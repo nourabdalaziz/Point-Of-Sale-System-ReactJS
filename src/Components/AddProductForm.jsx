@@ -2,6 +2,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormElementControl from "./FormElementControl.jsx";
 import useFetch from "../CustomHooks/useFetch.jsx";
+import useCUD from "../CustomHooks/useCUD.jsx";
 
 const AddProductForm = ({ closeModal, setProductsData, productsData }) => {
   const [options] = useFetch(" http://localhost:5000/categories");
@@ -44,13 +45,8 @@ const AddProductForm = ({ closeModal, setProductsData, productsData }) => {
       image: values.image,
       id: create_UUID(),
     };
-    fetch("http://localhost:5000/products", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-      body: JSON.stringify(dataToSend),
-    }).then(() => {
+    const prom = useCUD("http://localhost:5000/products", "POST", dataToSend);
+    prom.then(() => {
       closeModal();
       setProductsData([...productsData, dataToSend]);
     });
@@ -66,8 +62,16 @@ const AddProductForm = ({ closeModal, setProductsData, productsData }) => {
         return (
           <Form>
             <h2>Add New Product</h2>
-            <FormElementControl control="input" label="Product Code" name="code" />
-            <FormElementControl control="input" label="Product Name" name="name" />
+            <FormElementControl
+              control="input"
+              label="Product Code"
+              name="code"
+            />
+            <FormElementControl
+              control="input"
+              label="Product Name"
+              name="name"
+            />
             {options && (
               <FormElementControl
                 control="select"
