@@ -1,16 +1,10 @@
 {
   "products": [
     {
-      "code": "1",
-      "name": "Lemon",
-      "category": "Vegetables",
-      "image": "https://purepng.com/public/uploads/large/purepng.com-lemonlemonfruittastyyellowfoodadd-331522507459yya95.png",
-      "id": "9"
-    },
-    {
       "code": "2",
       "name": "Banana",
       "category": "Fruits",
+      "price": 5,
       "image": "https://purepng.com/public/uploads/large/three-bananas-uv1.png",
       "id": "82f39b5d-fb43-486e-8efc-747b57f19f7e"
     },
@@ -18,6 +12,7 @@
       "code": "3",
       "name": "Strawberry",
       "category": "Fruits",
+      "price": "15",
       "image": "https://purepng.com/public/uploads/large/purepng.com-strawberrystrawberrygenus-fragariastrawberriesfruitbotanical-berrybright-red-colorjuicy-texture-1701527398814xm3ju.png",
       "id": "2b86eb4d-732d-4eb2-a7c1-9e2f13fe2516"
     },
@@ -25,6 +20,7 @@
       "code": "4",
       "name": "Blueberry",
       "category": "Fruits",
+      "price": 5,
       "image": "https://purepng.com/public/uploads/large/purepng.com-blueberryberryfruitdeliciousdrawingblueberry-33152234542505pip.png",
       "id": "7cf7996d-1d1b-447f-b931-05fdfd356570"
     },
@@ -32,14 +28,15 @@
       "code": "5",
       "name": "Oranges",
       "category": "Fruits",
+      "price": 5,
       "image": "https://purepng.com/public/uploads/large/purepng.com-orange-orangesorangefruitbitter-orangeorangesclip-art-1701527336951ldrwe.png",
       "id": "5535564a-d007-43b4-9361-f2a5ccb7362a"
     },
-
     {
       "code": "6",
       "name": "Chocolate Cake",
       "category": "Sweets",
+      "price": 5,
       "image": "https://purepng.com/public/uploads/large/purepng.com-chocolate-cakechocolatechocolate-cakecakechocolate-gateausweet-1411527232105biakj.png",
       "id": "6a0ac1c9-ab3b-479b-a664-bb27e2718843"
     },
@@ -47,25 +44,63 @@
       "code": "7",
       "name": "Potato",
       "category": "Vegetables",
-      "image": "https://purepng.com/public/uploads/large/purepng.com-potatopotatofood-cropsvegetablepotatos-1701527311051rn2f4.png",
-      "id": "157339c2-ab89-406d-8414-69bca7f3709b"
+      "price": 5,
+      "image": "https://th.bing.com/th/id/R.7c2462a089e6415378ff3d93d9146352?rik=29DbRxtI144LJw&pid=ImgRaw&r=0",
+      "id": "4d438d11-e434-4f88-8b49-63e82b9a4865"
+    },
+    {
+      "code": "8",
+      "name": "Avocado",
+      "category": "Vegetables",
+      "price": "20",
+      "image": "https://893375.smushcdn.com/2094051/wp-content/uploads/2020/12/cucumber-large-long-giant-xl-seeds-garden-uk-grow-british-beth-alpha-marketmore-feature-close.jpg?lossy=1&strip=1&webp=1",
+      "id": "2aba1b2b-0510-4e95-b5d0-02d16ae9b7f4"
+    },
+    {
+      "code": "1",
+      "name": "Lemon",
+      "category": "Vegetables",
+      "price": "7",
+      "image": "https://th.bing.com/th/id/R.7dd4971597e09c25b654495f980cd9b0?rik=lQvXt2NFa2xB8g&pid=ImgRaw&r=0",
+      "id": "66646c10-6a6e-4ff7-8dc0-46c6d222f847"
+    },
+    {
+      "code": "155",
+      "name": "Cucumber",
+      "category": "Vegetables",
+      "price": "15",
+      "image": "https://th.bing.com/th/id/R.7c2462a089e6415378ff3d93d9146352?rik=29DbRxtI144LJw&pid=ImgRaw&r=0",
+      "id": "cd6b32e3-8acc-4339-a6a4-3f8fa080ea09"
+    },
+    {
+      "code": "9",
+      "name": "Apple Juice",
+      "category": "Drinks",
+      "price": "15",
+      "image": "https://th.bing.com/th/id/R.7dd4971597e09c25b654495f980cd9b0?rik=lQvXt2NFa2xB8g&pid=ImgRaw&r=0",
+      "id": "a17c6ac1-3bb6-4ac1-b1f1-e29fa69c32de"
     }
   ],
   "categories": [
     {
-      "name": "fruits"
+      "name": "Drinks",
+      "id": "66cc1d9c-ef22-43ad-a158-ce81d44c734a"
     },
     {
-      "name": "vegetables"
+      "name": "Fruits",
+      "id": "691ebf8a-e093-4e7c-bba6-9ea718b74a4f"
     },
     {
-      "name": "drinks"
+      "name": "Vegetables",
+      "id": "12c64786-aa2a-4981-857d-875a68b5895d"
     },
     {
-      "name": "sweets"
+      "name": "Sweets",
+      "id": "24890aa9-475f-4ec1-8292-8fbf5e25c31a"
     },
     {
-      "name": "condiments"
+      "name": "Cakes",
+      "id": "9ded280c-eab2-4f09-8520-be485b0c7f72"
     }
   ]
 }
