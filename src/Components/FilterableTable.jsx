@@ -9,7 +9,7 @@ const FilterableTable = ({
   toggleShowUpdateModal,
   deleteItem,
 }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+  let [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   let currentItems = dataInTable;
   const pageNumbers = [];
@@ -46,10 +46,11 @@ const FilterableTable = ({
     }
     return res;
   });
+
   if (searchedValue !== null && searchedValue !== "") {
     currentItems = filteredRows;
     totalItems = filteredRows.length;
-    console.log("HELLO, IT'S ME FROM IF STATEMENT", currentItems);
+    currentPage = 1;
   }
 
   for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
@@ -91,6 +92,8 @@ const FilterableTable = ({
                         <td>
                           <img className="product_image" src={item.image} />
                         </td>
+                      ) : header === "price" ? (
+                        <td key={Math.random()}>{item[header]} $</td>
                       ) : (
                         <td key={Math.random()}>{item[header]}</td>
                       );
