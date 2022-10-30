@@ -3,8 +3,11 @@ import * as Yup from "yup";
 import FormElementControl from "./FormElementControl.jsx";
 import useFetch from "../CustomHooks/useFetch.jsx";
 import useCUD from "../CustomHooks/useCUD.jsx";
+import ProductsDataContext from "../Contexts/ProductsDataContext.jsx";
+import { useContext } from "react";
 
-const AddProductForm = ({ closeModal, setProductsData, productsData }) => {
+const AddProductForm = ({ closeModal }) => {
+  const { context, setContext } = useContext(ProductsDataContext);
   const [options] = useFetch(" http://localhost:5000/categories");
 
   function create_UUID() {
@@ -24,6 +27,7 @@ const AddProductForm = ({ closeModal, setProductsData, productsData }) => {
     code: "",
     name: "",
     category: "",
+    price: "",
     image: "",
   };
 
@@ -34,7 +38,11 @@ const AddProductForm = ({ closeModal, setProductsData, productsData }) => {
       .required("Required"),
     name: Yup.string().required("Required"),
     category: Yup.string().required("Required"),
-    image: Yup.string().typeError().url(),
+    price: Yup.number()
+      .typeError("Product price must be a number")
+      .positive("Product price must be greater than zero")
+      .required("Required"),
+    image: Yup.string().typeError("Product image must be a valid URL").url(),
   });
 
   const onSubmit = (values) => {
@@ -42,13 +50,14 @@ const AddProductForm = ({ closeModal, setProductsData, productsData }) => {
       code: values.code,
       name: values.name,
       category: values.category,
+      price: values.price,
       image: values.image,
       id: create_UUID(),
     };
     const prom = useCUD("http://localhost:5000/products", "POST", dataToSend);
     prom.then(() => {
       closeModal();
-      setProductsData([...productsData, dataToSend]);
+      setContext([...context, dataToSend]);
     });
   };
 
@@ -80,6 +89,7 @@ const AddProductForm = ({ closeModal, setProductsData, productsData }) => {
                 options={options}
               />
             )}
+            <FormElementControl control="input" label="Price" name="price" />
             <FormElementControl
               control="input"
               label="Product Image URL"

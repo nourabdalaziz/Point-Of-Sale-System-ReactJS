@@ -3,21 +3,22 @@ import * as Yup from "yup";
 import FormElementControl from "./FormElementControl.jsx";
 import useFetch from "../CustomHooks/useFetch.jsx";
 import useCUD from "../CustomHooks/useCUD.jsx";
+import ProductsDataContext from "../Contexts/ProductsDataContext.jsx";
+import { useContext } from "react";
 
 const UpdateProductForm = ({
   closeModal,
-  setNeedToRefreshData,
-  needToRefreshData,
-  productsData,
   id,
 }) => {
+  const { context, needToRefreshData, setNeedToRefreshData } =
+    useContext(ProductsDataContext);
   const [options] = useFetch(" http://localhost:5000/categories");
-
-  const selectedRow = productsData.filter((item) => item.id === id)[0];
+  const selectedRow = context.filter((item) => item.id === id)[0];
   const initialValues = {
     code: selectedRow.code,
     name: selectedRow.name,
     category: selectedRow.category,
+    price: selectedRow.price,
     image: selectedRow.image,
   };
 
@@ -28,7 +29,11 @@ const UpdateProductForm = ({
       .required("Required"),
     name: Yup.string().required("Required"),
     category: Yup.string().required("Required"),
-    image: Yup.string().typeError("Product code must be a number").url(),
+    price: Yup.number()
+      .typeError("Product price must be a number")
+      .positive("Product price must be greater than zero")
+      .required("Required"),
+    image: Yup.string().typeError("Product image must be a valid URL").url(),
   });
 
   const onSubmit = (values) => {
@@ -37,6 +42,7 @@ const UpdateProductForm = ({
       code: values.code,
       name: values.name,
       category: values.category,
+      price: values.price,
       image: values.image,
     };
 
@@ -85,6 +91,7 @@ const UpdateProductForm = ({
                 options={options}
               />
             )}
+            <FormElementControl control="input" label="Price" name="price" />
             <FormElementControl
               control="input"
               label="Product Image URL"
