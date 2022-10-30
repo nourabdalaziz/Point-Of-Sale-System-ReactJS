@@ -1,29 +1,19 @@
-import { useState, useEffect, useRef } from "react";
-import useFetch from "../CustomHooks/useFetch.jsx";
+import { useState, useRef, useContext } from "react";
 import FilterableTable from "../Components/FilterableTable.jsx";
 import LoadingSpinner from "../Components/LoadingSpinner.jsx";
 import Modal from "../Components/Modal.jsx";
 import AddProductForm from "../Components/AddProductForm.jsx";
 import UpdateProductForm from "../Components/UpdateProductForm.jsx";
+import ProductsDataContext from "../Contexts/ProductsDataContext.jsx";
 
 const Products = () => {
-  const [needToRefreshData, setNeedToRefreshData] = useState(false);
-  const [products, isLoading] = useFetch(
-    "http://localhost:5000/products",
-    needToRefreshData
-  );
-  const [productsData, setProductsData] = useState([]);
+  const { context, needToRefreshData, setNeedToRefreshData, isLoading } =
+    useContext(ProductsDataContext);
   const [searchedValue, setSearchedValue] = useState("");
   const [showAddProductModal, setShowAddProductModal] = useState(false);
   const [showUpdateProductModal, setShowUpdateProductModal] = useState(false);
-
-  const HEADERS = ["code", "name", "category", "image"];
+  const HEADERS = ["code", "name", "category", "price", "image"];
   const idToUpdate = useRef(0);
-
-  useEffect(() => {
-    console.log(productsData);
-    setProductsData(products);
-  }, [products]);
 
   const handleDeleteProduct = (productID) => {
     console.log(productID, "..");
@@ -54,7 +44,7 @@ const Products = () => {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        productsData && (
+        context && (
           <>
             <div className="main-wrapper-products">
               <div className="search-and-button">
@@ -64,15 +54,16 @@ const Products = () => {
                 >
                   Add Product
                 </button>{" "}
-                  <input
-                    type="search"
-                    placeholder=" Search .. "
-                    onChange={(e) => setSearchedValue(e.target.value)}
-                  />
+                <input
+                  type="search"
+                  placeholder=" Search .. "
+                  className="general-search-field"
+                  onChange={(e) => setSearchedValue(e.target.value)}
+                />
               </div>
               <FilterableTable
                 headers={HEADERS}
-                dataInTable={productsData}
+                dataInTable={context}
                 searchedValue={searchedValue}
                 toggleShowUpdateModal={toggleShowUpdateProductModal}
                 deleteItem={handleDeleteProduct}
@@ -82,8 +73,7 @@ const Products = () => {
                   <div>
                     <AddProductForm
                       closeModal={toggleShowAddProductModal}
-                      setProductsData={setProductsData}
-                      productsData={productsData}
+                      productsData={context}
                     />
                   </div>
                 </Modal>
@@ -93,9 +83,6 @@ const Products = () => {
                   <div>
                     <UpdateProductForm
                       closeModal={toggleShowUpdateProductModal}
-                      setNeedToRefreshData={setNeedToRefreshData}
-                      needToRefreshData={needToRefreshData}
-                      productsData={productsData}
                       id={idToUpdate.current}
                     />
                   </div>
