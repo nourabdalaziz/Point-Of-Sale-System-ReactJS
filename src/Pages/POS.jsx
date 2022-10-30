@@ -10,20 +10,23 @@ const POS = () => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [tax, setTax] = useState(0);
-
   const [discount, setDiscount] = useState(0);
   const [categories] = useFetch("http://localhost:5000/categories");
 
   useEffect(() => {
-    const totalSum = cart.reduce(
+    const subTotal = cart.reduce(
       (prev, curr) => +prev + +curr.totalPerProduct,
       0
     );
-
-    tax ? setTotal(totalSum * tax) : setTotal(totalSum);
-    discount
-      ? setTotal(totalSum - totalSum * (discount / 100))
-      : setTotal(totalSum);
+    const totalWithDiscount = subTotal - subTotal * (discount / 100);
+    const totalWithTax = subTotal * (1 + tax / 100);
+    tax && discount
+      ? setTotal(totalWithDiscount * (1 + tax / 100))
+      : tax
+      ? setTotal(totalWithTax)
+      : discount
+      ? setTotal(totalWithDiscount)
+      : setTotal(subTotal);
   }, [cart, tax, discount]);
 
   const addItemToCart = (item) => {
@@ -106,7 +109,7 @@ const POS = () => {
                 addItemToCart={addItemToCart}
               />{" "}
               <div className="pos-categories-btns">
-                <button onClick={(e) => setSearchedValue("")}>All</button>
+                <button onClick={() => setSearchedValue("")}>All</button>
 
                 {categories &&
                   categories.map((category) => {
@@ -168,14 +171,29 @@ const POS = () => {
                   );
                 })}
               </div>
-              <div className="cart-tax-total">
-                <input type="text" onChange={(e) => setTax(e.target.value)} />
-                <br />
-                <input
-                  type="text"
-                  onChange={(e) => setDiscount(e.target.value)}
-                />
-                <div>{total} $</div>
+              <div className="cart-tax-disc-total">
+                <div className="cart-input-container">
+                  <label htmlFor="tax-input">Tax:</label>{" "}
+                  <input
+                    id="tax-input"
+                    placeholder="%"
+                    className="cart-input-field"
+                    type="text"
+                    onChange={(e) => setTax(e.target.value)}
+                  />
+                </div>
+                <div className="cart-input-container">
+                  <label htmlFor="discount-input">Discount :</label>{" "}
+                  <input
+                    id="discount-input"
+                    placeholder="%"
+                    className="cart-input-field"
+                    type="text"
+                    onChange={(e) => setDiscount(e.target.value)}
+                  />{" "}
+                </div>
+                <div className="cart-total-sum">
+                 Total : {total} $</div>
               </div>
             </div>
           </div>
