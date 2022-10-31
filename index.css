@@ -90,11 +90,7 @@ input[type="search"]::placeholder {
   display: flex;
   align-items: center;
   width: 100%;
-  /* overflow: scroll;
-  overflow-y: hidden; */
   margin-top: 1.5rem;
-  height: 10%;
-  background-color: #fff;
   border-radius: 7px;
 }
 .pos-categories-btns button {
