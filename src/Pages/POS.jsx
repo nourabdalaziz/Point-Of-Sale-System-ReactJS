@@ -68,12 +68,14 @@ const POS = () => {
       case "minus": {
         cart.forEach((itemInCart) => {
           if (itemInCart.id === item.id) {
-            itemWithNewQtty = {
-              ...itemInCart,
-              quantity: itemInCart.quantity - 1,
-              totalPerProduct: (itemInCart.quantity - 1) * itemInCart.price,
-            };
-            editedCart.push(itemWithNewQtty);
+            if (itemInCart.quantity > 1) {
+              itemWithNewQtty = {
+                ...itemInCart,
+                quantity: itemInCart.quantity - 1,
+                totalPerProduct: (itemInCart.quantity - 1) * itemInCart.price,
+              };
+              editedCart.push(itemWithNewQtty);
+            }
           } else {
             editedCart.push(itemInCart);
           }
@@ -103,11 +105,6 @@ const POS = () => {
                 className="pos-search"
                 onChange={(e) => setSearchedValue(e.target.value)}
               />{" "}
-              <FilterableGrid
-                dataInGrid={productsContext}
-                searchedValue={searchedValue}
-                addItemToCart={addItemToCart}
-              />{" "}
               <div className="pos-categories-btns">
                 <button onClick={() => setSearchedValue("")}>All</button>
                 {categContext &&
@@ -125,6 +122,11 @@ const POS = () => {
                     );
                   })}
               </div>
+              <FilterableGrid
+                dataInGrid={productsContext}
+                searchedValue={searchedValue}
+                addItemToCart={addItemToCart}
+              />{" "}
             </div>
             <Cart
               dataInCart={cart}
