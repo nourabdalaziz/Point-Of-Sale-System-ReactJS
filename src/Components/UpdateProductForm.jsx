@@ -1,19 +1,18 @@
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormElementControl from "./FormElementControl.jsx";
-import useFetch from "../CustomHooks/useFetch.jsx";
 import useCUD from "../CustomHooks/useCUD.jsx";
-import ProductsDataContext from "../Contexts/ProductsDataContext.jsx";
+import FetchedDataContext from "../Contexts/FetchedDataContext.jsx";
 import { useContext } from "react";
 
-const UpdateProductForm = ({
-  closeModal,
-  id,
-}) => {
-  const { context, needToRefreshData, setNeedToRefreshData } =
-    useContext(ProductsDataContext);
-  const [options] = useFetch(" http://localhost:5000/categories");
-  const selectedRow = context.filter((item) => item.id === id)[0];
+const UpdateProductForm = ({ closeModal, id }) => {
+  const {
+    productsContext,
+    needToRefreshData,
+    setNeedToRefreshData,
+    categContext,
+  } = useContext(FetchedDataContext);
+  const selectedRow = productsContext.filter((item) => item.id === id)[0];
   const initialValues = {
     code: selectedRow.code,
     name: selectedRow.name,
@@ -83,12 +82,12 @@ const UpdateProductForm = ({
               label="Product Name"
               name="name"
             />
-            {options && (
+            {categContext && (
               <FormElementControl
                 control="select"
                 label="Product Category"
                 name="category"
-                options={options}
+                options={categContext}
               />
             )}
             <FormElementControl control="input" label="Price" name="price" />

@@ -2,8 +2,12 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormElementControl from "./FormElementControl.jsx";
 import useCUD from "../CustomHooks/useCUD.jsx";
+import FetchedDataContext from "../Contexts/FetchedDataContext.jsx";
+import { useContext } from "react";
 
-const AddProductForm = ({ closeModal, setCategoriesData, categoriesData }) => {
+const AddProductForm = ({ closeModal }) => {
+  const { categContext, setCategContext } = useContext(FetchedDataContext);
+
   function create_UUID() {
     var dt = new Date().getTime();
     var uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
@@ -33,11 +37,9 @@ const AddProductForm = ({ closeModal, setCategoriesData, categoriesData }) => {
     const prom = useCUD("http://localhost:5000/categories", "POST", dataToSend);
     prom.then(() => {
       closeModal();
-      setCategoriesData([...categoriesData, dataToSend]);
+      setCategContext([...categContext, dataToSend]);
     });
   };
-
-  console.log(categoriesData);
 
   return (
     <Formik

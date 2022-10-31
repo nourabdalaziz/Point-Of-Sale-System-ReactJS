@@ -2,15 +2,16 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormElementControl from "./FormElementControl.jsx";
 import useCUD from "../CustomHooks/useCUD.jsx";
+import FetchedDataContext from "../Contexts/FetchedDataContext.jsx";
+import { useContext } from "react";
 
 const UpdateProductForm = ({
   closeModal,
-  setNeedToRefreshData,
-  needToRefreshData,
-  categoriesData,
+ 
   id,
 }) => {
-  const selectedRow = categoriesData.filter((item) => item.id === id)[0];
+  const { categContext, needToRefreshData, setNeedToRefreshData } = useContext(FetchedDataContext);
+  const selectedRow = categContext.filter((item) => item.id === id)[0];
   const initialValues = {
     name: selectedRow.name,
   };
@@ -72,4 +73,3 @@ const UpdateProductForm = ({
   );
 };
 export default UpdateProductForm;
-

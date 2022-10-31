@@ -1,14 +1,13 @@
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormElementControl from "./FormElementControl.jsx";
-import useFetch from "../CustomHooks/useFetch.jsx";
 import useCUD from "../CustomHooks/useCUD.jsx";
-import ProductsDataContext from "../Contexts/ProductsDataContext.jsx";
+import FetchedDataContext from "../Contexts/FetchedDataContext.jsx";
 import { useContext } from "react";
 
 const AddProductForm = ({ closeModal }) => {
-  const { context, setContext } = useContext(ProductsDataContext);
-  const [options] = useFetch(" http://localhost:5000/categories");
+  const { productsContext, setProductsContext, categContext } =
+    useContext(FetchedDataContext);
 
   function create_UUID() {
     var dt = new Date().getTime();
@@ -57,7 +56,7 @@ const AddProductForm = ({ closeModal }) => {
     const prom = useCUD("http://localhost:5000/products", "POST", dataToSend);
     prom.then(() => {
       closeModal();
-      setContext([...context, dataToSend]);
+      setProductsContext([...productsContext, dataToSend]);
     });
   };
 
@@ -81,12 +80,12 @@ const AddProductForm = ({ closeModal }) => {
               label="Product Name"
               name="name"
             />
-            {options && (
+            {categContext && (
               <FormElementControl
                 control="select"
                 label="Product Category"
                 name="category"
-                options={options}
+                options={categContext}
               />
             )}
             <FormElementControl control="input" label="Price" name="price" />
