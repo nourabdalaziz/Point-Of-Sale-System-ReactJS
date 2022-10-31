@@ -4,11 +4,15 @@ import LoadingSpinner from "../Components/LoadingSpinner.jsx";
 import Modal from "../Components/Modal.jsx";
 import AddProductForm from "../Components/AddProductForm.jsx";
 import UpdateProductForm from "../Components/UpdateProductForm.jsx";
-import ProductsDataContext from "../Contexts/ProductsDataContext.jsx";
+import FetchedDataContext from "../Contexts/FetchedDataContext.jsx";
 
 const Products = () => {
-  const { context, needToRefreshData, setNeedToRefreshData, isLoading } =
-    useContext(ProductsDataContext);
+  const {
+    productsContext,
+    needToRefreshData,
+    setNeedToRefreshData,
+    isLoadingProducts,
+  } = useContext(FetchedDataContext);
   const [searchedValue, setSearchedValue] = useState("");
   const [showAddProductModal, setShowAddProductModal] = useState(false);
   const [showUpdateProductModal, setShowUpdateProductModal] = useState(false);
@@ -41,10 +45,10 @@ const Products = () => {
 
   return (
     <div>
-      {isLoading ? (
+      {isLoadingProducts ? (
         <LoadingSpinner />
       ) : (
-        context && (
+        productsContext && (
           <>
             <div className="main-wrapper-products">
               <div className="search-and-button">
@@ -63,7 +67,7 @@ const Products = () => {
               </div>
               <FilterableTable
                 headers={HEADERS}
-                dataInTable={context}
+                dataInTable={productsContext}
                 searchedValue={searchedValue}
                 toggleShowUpdateModal={toggleShowUpdateProductModal}
                 deleteItem={handleDeleteProduct}
@@ -73,7 +77,7 @@ const Products = () => {
                   <div>
                     <AddProductForm
                       closeModal={toggleShowAddProductModal}
-                      productsData={context}
+                      productsData={productsContext}
                     />
                   </div>
                 </Modal>

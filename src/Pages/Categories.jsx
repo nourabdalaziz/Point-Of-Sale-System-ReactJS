@@ -1,19 +1,19 @@
-import { useState, useEffect, useRef } from "react";
-import useFetch from "../CustomHooks/useFetch.jsx";
+import { useState, useRef, useContext } from "react";
 import useCUD from "../CustomHooks/useCUD.jsx";
 import FilterableTable from "../Components/FilterableTable.jsx";
 import LoadingSpinner from "../Components/LoadingSpinner.jsx";
 import Modal from "../Components/Modal.jsx";
 import AddCategoryForm from "../Components/AddCategoryForm.jsx";
 import UpdateCategoryForm from "../Components/UpdateCategoryForm.jsx";
+import FetchedDataContext from "../Contexts/FetchedDataContext.jsx";
 
 const Categories = () => {
-  const [needToRefreshData, setNeedToRefreshData] = useState(false);
-  const [categories, isLoading] = useFetch(
-    "http://localhost:5000/categories",
-    needToRefreshData
-  );
-  const [categoriesData, setCategoriesData] = useState([]);
+  const {
+    categContext,
+    needToRefreshData,
+    setNeedToRefreshData,
+    isLoadingCategs,
+  } = useContext(FetchedDataContext);
   const [searchedValue, setSearchedValue] = useState("");
   const [showAddCategoryModal, setShowAddCategoryModal] = useState(false);
   const [showUpdateCategoryModal, setShowUpdateCategoryModal] = useState(false);
@@ -21,11 +21,11 @@ const Categories = () => {
   const HEADERS = ["name"];
   const idToUpdate = useRef(0);
 
-  useEffect(() => {
-    console.log(categoriesData);
-    setCategoriesData(categories);
-  }, [categories]);
-
+  // useEffect(() => {
+  //   console.log(categoriesData);
+  //   setCategoriesData(categories);
+  // }, [categories]);
+  console.log(categContext);
   const handleDeleteCategory = (categoryId) => {
     console.log(categoryId, "..");
     const prom = useCUD(
@@ -54,10 +54,10 @@ const Categories = () => {
 
   return (
     <div>
-      {isLoading ? (
+      {isLoadingCategs ? (
         <LoadingSpinner />
       ) : (
-        categoriesData && (
+        categContext && (
           <>
             <div className="main-wrapper-categories">
               <div className="search-and-button">
@@ -70,12 +70,13 @@ const Categories = () => {
                 <input
                   type="search"
                   placeholder=" Search .. "
+                  className="general-search-field"
                   onChange={(e) => setSearchedValue(e.target.value)}
                 />
               </div>
               <FilterableTable
                 headers={HEADERS}
-                dataInTable={categoriesData}
+                dataInTable={categContext}
                 searchedValue={searchedValue}
                 toggleShowUpdateModal={toggleshowUpdateCategoryModal}
                 deleteItem={handleDeleteCategory}
@@ -85,8 +86,7 @@ const Categories = () => {
                   <div>
                     <AddCategoryForm
                       closeModal={toggleshowAddCategoryModal}
-                      setCategoriesData={setCategoriesData}
-                      categoriesData={categoriesData}
+                      categoriesData={categContext}
                     />
                   </div>
                 </Modal>
@@ -96,9 +96,6 @@ const Categories = () => {
                   <div>
                     <UpdateCategoryForm
                       closeModal={toggleshowUpdateCategoryModal}
-                      setNeedToRefreshData={setNeedToRefreshData}
-                      needToRefreshData={needToRefreshData}
-                      categoriesData={categoriesData}
                       id={idToUpdate.current}
                     />
                   </div>

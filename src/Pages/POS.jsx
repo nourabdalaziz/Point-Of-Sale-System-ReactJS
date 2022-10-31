@@ -1,18 +1,17 @@
 import { useContext, useState, useEffect } from "react";
-import ProductsDataContext from "../Contexts/ProductsDataContext.jsx";
+import FetchedDataContext from "../Contexts/FetchedDataContext.jsx";
 import LoadingSpinner from "../Components/LoadingSpinner.jsx";
 import FilterableGrid from "../Components/FilterableGrid.jsx";
-import useFetch from "../CustomHooks/useFetch.jsx";
 import Cart from "../Components/Cart.jsx";
 
 const POS = () => {
-  const { context, isLoading } = useContext(ProductsDataContext);
+  const { productsContext, isLoadingProducts, categContext } =
+    useContext(FetchedDataContext);
   const [searchedValue, setSearchedValue] = useState("");
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [tax, setTax] = useState(0);
   const [discount, setDiscount] = useState(0);
-  const [categories] = useFetch("http://localhost:5000/categories");
 
   useEffect(() => {
     const subTotal = cart.reduce(
@@ -92,7 +91,7 @@ const POS = () => {
 
   return (
     <div>
-      {isLoading ? (
+      {isLoadingProducts ? (
         <LoadingSpinner />
       ) : (
         <>
@@ -105,14 +104,14 @@ const POS = () => {
                 onChange={(e) => setSearchedValue(e.target.value)}
               />{" "}
               <FilterableGrid
-                dataInGrid={context}
+                dataInGrid={productsContext}
                 searchedValue={searchedValue}
                 addItemToCart={addItemToCart}
               />{" "}
               <div className="pos-categories-btns">
                 <button onClick={() => setSearchedValue("")}>All</button>
-                {categories &&
-                  categories.map((category) => {
+                {categContext &&
+                  categContext.map((category) => {
                     return (
                       <button
                         key={Math.random()}
