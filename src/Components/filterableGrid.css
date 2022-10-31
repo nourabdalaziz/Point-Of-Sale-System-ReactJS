@@ -1,22 +1,17 @@
 .grid-container {
   width: 100%;
   display: grid;
-
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  grid-auto-rows: minmax(13em, auto);
+  grid-template-rows: 13em;
   gap: 15px;
-  /* background-color: rgb(230, 227, 227); */
-  /* padding: 1rem; */
   margin-top: 2rem;
-  /* overflow: scroll;
-    grid-auto-flow: row;
-    grid-auto-rows: 50%; */
   height: 80%;
   overflow: scroll;
   overflow-x: hidden;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+
 .grid-item {
   border-radius: 10px;
   background-color: #ffffff;
@@ -29,16 +24,16 @@
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.14), 0 4px 2px -3px rgba(0, 0, 0, 0.2),
     0 2px 6px 0 rgba(0, 0, 0, 0.12);
 }
+
 .grid-item p {
   margin: 0;
   color: #d4d4dd;
   padding-top: 10px;
   font-size: 12px;
 }
-.grid-item:hover {
-  /* transform: translate(0, -20px); */
-  transform: scale(1.05);
 
+.grid-item:hover {
+  transform: scale(1.05);
   opacity: 0.5;
   cursor: pointer;
 }
