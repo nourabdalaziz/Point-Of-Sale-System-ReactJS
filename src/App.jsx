@@ -3,31 +3,41 @@ import Categories from "./Pages/Categories.jsx";
 import POS from "./Pages/POS.jsx";
 import Products from "./Pages/Products.jsx";
 import Navbar from "./Components/Navbar.jsx";
-import ProductsDataContext from "./Contexts/ProductsDataContext.jsx";
+import FetchedDataContext from "./Contexts/FetchedDataContext.jsx";
 import { useState, useEffect } from "react";
 import useFetch from "./CustomHooks/useFetch.jsx";
 
 const App = () => {
   const [needToRefreshData, setNeedToRefreshData] = useState(false);
-  const [context, setContext] = useState([]);
+  const [productsContext, setProductsContext] = useState([]);
+  const [categContext, setCategContext] = useState([]);
 
-  const [products, isLoading] = useFetch(
+  const [products, isLoadingProducts] = useFetch(
     "http://localhost:5000/products",
     needToRefreshData
   );
 
+  const [categories, isLoadingCategs] = useFetch(
+    "http://localhost:5000/categories",
+    needToRefreshData
+  );
+
   useEffect(() => {
-    products && setContext(products);
-  }, [products]);
+    products && setProductsContext(products);
+    categories && setCategContext(categories);
+  }, [products, categories]);
 
   return (
-    <ProductsDataContext.Provider
+    <FetchedDataContext.Provider
       value={{
-        context,
-        setContext,
+        productsContext,
+        setProductsContext,
         needToRefreshData,
         setNeedToRefreshData,
-        isLoading,
+        isLoadingProducts,
+        categContext,
+        setCategContext,
+        isLoadingCategs,
       }}
     >
       <BrowserRouter>
@@ -39,7 +49,7 @@ const App = () => {
           <Route path="/pos" element={<POS />} />
         </Routes>
       </BrowserRouter>
-    </ProductsDataContext.Provider>
+    </FetchedDataContext.Provider>
   );
 };
 export default App;
