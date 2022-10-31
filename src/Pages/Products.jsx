@@ -5,6 +5,7 @@ import Modal from "../Components/Modal.jsx";
 import AddProductForm from "../Components/AddProductForm.jsx";
 import UpdateProductForm from "../Components/UpdateProductForm.jsx";
 import FetchedDataContext from "../Contexts/FetchedDataContext.jsx";
+import useCUD from "../CustomHooks/useCUD.jsx";
 
 const Products = () => {
   const {
@@ -20,13 +21,14 @@ const Products = () => {
   const idToUpdate = useRef(0);
 
   const handleDeleteProduct = (productID) => {
-    console.log(productID, "..");
-    fetch(`http://localhost:5000/products/${productID}`, {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
+    const prom = useCUD(
+      `http://localhost:5000/products/`,
+      "DELETE",
+      "",
+      productID
+    );
+
+    prom
       .then((res) => res.json())
       .then((res) => {
         setNeedToRefreshData(!needToRefreshData);
