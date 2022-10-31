@@ -6,10 +6,14 @@
 }
 .siteName {
   padding-left: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .navbar-titles {
   padding-right: 1.5rem;
 }
 .navLink {
   padding-left: 2.5rem;
+  font-weight: bold;
 }
