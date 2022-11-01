@@ -49,58 +49,42 @@
       "id": "4d438d11-e434-4f88-8b49-63e82b9a4865"
     },
     {
-      "code": "8",
-      "name": "Avocado",
-      "category": "Vegetables",
-      "price": "20",
-      "image": "https://893375.smushcdn.com/2094051/wp-content/uploads/2020/12/cucumber-large-long-giant-xl-seeds-garden-uk-grow-british-beth-alpha-marketmore-feature-close.jpg?lossy=1&strip=1&webp=1",
-      "id": "2aba1b2b-0510-4e95-b5d0-02d16ae9b7f4"
-    },
-    {
       "code": "1",
       "name": "Lemon",
       "category": "Vegetables",
-      "price": "7",
+      "price": "5",
       "image": "https://th.bing.com/th/id/R.7dd4971597e09c25b654495f980cd9b0?rik=lQvXt2NFa2xB8g&pid=ImgRaw&r=0",
       "id": "66646c10-6a6e-4ff7-8dc0-46c6d222f847"
     },
     {
-      "code": "155",
-      "name": "Cucumber",
+      "code": "156",
+      "name": "test",
       "category": "Vegetables",
       "price": "15",
       "image": "https://th.bing.com/th/id/R.7c2462a089e6415378ff3d93d9146352?rik=29DbRxtI144LJw&pid=ImgRaw&r=0",
-      "id": "cd6b32e3-8acc-4339-a6a4-3f8fa080ea09"
-    },
-    {
-      "code": "9",
-      "name": "Apple Juice",
-      "category": "Drinks",
-      "price": "15",
-      "image": "https://th.bing.com/th/id/R.7dd4971597e09c25b654495f980cd9b0?rik=lQvXt2NFa2xB8g&pid=ImgRaw&r=0",
-      "id": "a17c6ac1-3bb6-4ac1-b1f1-e29fa69c32de"
+      "id": "6c37e0b3-635e-4ea0-946b-590f92c901a1"
     }
   ],
   "categories": [
     {
-      "name": "Drinks",
-      "id": "66cc1d9c-ef22-43ad-a158-ce81d44c734a"
-    },
-    {
       "name": "Fruits",
-      "id": "691ebf8a-e093-4e7c-bba6-9ea718b74a4f"
+      "id": "84f77894-2896-46f3-bf63-2dbff0702d09"
     },
     {
       "name": "Vegetables",
-      "id": "12c64786-aa2a-4981-857d-875a68b5895d"
+      "id": "9a5b8eda-2147-4460-9a94-7f0d31b8dc19"
+    },
+    {
+      "name": "Drinks",
+      "id": "da02ec22-52ba-49b7-a326-f617c50a8eda"
     },
     {
       "name": "Sweets",
-      "id": "24890aa9-475f-4ec1-8292-8fbf5e25c31a"
+      "id": "a7d2bc63-6f05-45bc-963a-bbdb08e682ae"
     },
     {
       "name": "Cakes",
-      "id": "9ded280c-eab2-4f09-8520-be485b0c7f72"
+      "id": "02a4d155-98e0-45f5-a7f6-06ff4c0fe3e0"
     }
   ]
 }
