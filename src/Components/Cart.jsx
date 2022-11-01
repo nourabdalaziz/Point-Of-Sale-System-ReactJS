@@ -7,6 +7,7 @@ const Cart = ({
   setTax,
   setDiscount,
   total,
+  subTotal,
 }) => {
   return (
     <div className="cart">
@@ -20,7 +21,7 @@ const Cart = ({
                 aria-hidden="true"
                 onClick={() => deleteFromCart(item)}
               ></i>
-              <img src={item.image} style={{ height: "50px", width: "50px" }} />
+              <img src={item.image} style={{ height: "40px", width: "40px" }} />
               <div className="itemInCart-nameAndPrice">
                 <div>{item.name}</div>
                 <div>{item.price} $</div>
@@ -49,6 +50,10 @@ const Cart = ({
       </div>
       <div className="cart-tax-disc-total">
         <div className="cart-input-container">
+          <label htmlFor="tax-input">Subtotal: </label>{" "}
+          <span>{subTotal} $</span>
+        </div>
+        <div className="cart-input-container">
           <label htmlFor="tax-input">Tax:</label>{" "}
           <input
             id="tax-input"
@@ -68,7 +73,13 @@ const Cart = ({
             onChange={(e) => setDiscount(e.target.value)}
           />{" "}
         </div>
-        <div className="cart-total-sum">Total : {total} $</div>
+        <div className="cart-input-container cart-total-sum">
+          <label htmlFor="tax-input">Total: </label> <span>{total} $</span>
+        </div>
+        <div className="cart-checkout-btns">
+          <button>Cancel</button>
+          <button>Checkout</button>
+        </div>
       </div>
     </div>
   );
