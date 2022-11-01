@@ -1,4 +1,4 @@
-import "./filterableTable.css";
+import "./Components_Styles/filterableTable.css";
 import { useState } from "react";
 import Pagination from "./Pagination.jsx";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
 import TextError from "./TextError.jsx";
-import "./form.css";
+import "./Components_Styles/form.css";
 
 function Select({ label, name, options, ...rest }) {
   return (

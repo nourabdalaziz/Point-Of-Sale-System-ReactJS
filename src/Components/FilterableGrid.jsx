@@ -1,4 +1,4 @@
-import "./filterableGrid.css";
+import "./Components_Styles/filterableGrid.css";
 
 const GridLayout = ({ dataInGrid, searchedValue, addItemToCart }) => {
   let currentItems = dataInGrid;

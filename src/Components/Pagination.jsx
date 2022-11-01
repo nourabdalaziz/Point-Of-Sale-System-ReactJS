@@ -1,4 +1,4 @@
-import "./pagination.css";
+import "./Components_Styles/pagination.css";
 
 const Pagination = ({ currentPage, pageNumbers, setCurrentPage }) => {
   const pagination = (pageNumber) => {
