@@ -85,7 +85,6 @@ input[type="search"]::placeholder {
   border-radius: 5px;
   border: 1px solid rgb(229, 227, 227);
 }
-
 .pos-categories-btns {
   display: flex;
   align-items: center;
@@ -97,9 +96,16 @@ input[type="search"]::placeholder {
   padding: 7px 7px;
   width: 20%;
   margin-right: 1rem;
-  border-radius: 5px;
-  background-color: #646cff;
-  color: #fff;
-  border: none;
+  border-radius: 20px;
+  color: #646cff;
+  border: 1px solid rgb(229, 227, 227);
   cursor: pointer;
+}
+.pos-categories-btns button:focus {
+  background-color: #646cff;
+  color: rgb(240, 239, 239);
+}
+.pos-categories-btns button:hover {
+  background-color: #646cff;
+  color: rgb(240, 239, 239);
 }
