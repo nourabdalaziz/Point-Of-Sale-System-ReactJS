@@ -12,12 +12,13 @@ const POS = () => {
   const [total, setTotal] = useState(0);
   const [tax, setTax] = useState(0);
   const [discount, setDiscount] = useState(0);
-
+  const [subTotal, setSubTotal] = useState(0);
   useEffect(() => {
     const subTotal = cart.reduce(
       (prev, curr) => +prev + +curr.totalPerProduct,
       0
     );
+    setSubTotal(subTotal);
     const totalWithDiscount = subTotal - subTotal * (discount / 100);
     const totalWithTax = subTotal * (1 + tax / 100);
     tax && discount
@@ -134,6 +135,7 @@ const POS = () => {
               editQtty={editQtty}
               setTax={setTax}
               setDiscount={setDiscount}
+              subTotal={subTotal}
               total={total}
             />
           </div>
