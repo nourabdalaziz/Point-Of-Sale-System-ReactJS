@@ -39,7 +39,7 @@ const GridLayout = ({ dataInGrid, searchedValue, addItemToCart }) => {
     <div className="grid-container">
       {currentItems.map((item) => (
         <div
-          key={Math.random()}
+          key={item.id}
           className="grid-item"
           onClick={() => addItemToCart(item)}
         >

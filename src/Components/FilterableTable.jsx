@@ -68,9 +68,9 @@ const FilterableTable = ({
           <thead>
             <tr>
               {" "}
-              {headers.map((header) => {
+              {headers.map((header,index) => {
                 return (
-                  <th key={Math.random()}>{capetalizeFirstLetter(header)}</th>
+                  <th key={index}>{capetalizeFirstLetter(header)}</th>
                 );
               })}
               <th key={Math.random()}>Actions</th>

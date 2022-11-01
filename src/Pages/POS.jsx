@@ -112,7 +112,7 @@ const POS = () => {
                   categContext.map((category) => {
                     return (
                       <button
-                        key={Math.random()}
+                        key={category.id}
                         value={category.name}
                         onClick={(e) => {
                           setSearchedValue(e.target.value);

@@ -15,7 +15,7 @@ const Cart = ({
       <div className="cart-items-list">
         {dataInCart.map((item) => {
           return (
-            <div key={Math.random()} className="itemInCart">
+            <div key={item.id} className="itemInCart">
               <i
                 className="fa fa-times-circle fa-2x"
                 aria-hidden="true"
