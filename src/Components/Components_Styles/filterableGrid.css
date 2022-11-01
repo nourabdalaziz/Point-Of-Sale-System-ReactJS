@@ -1,0 +1,39 @@
+.grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-template-rows: 13em;
+  gap: 15px;
+  margin-top: 2rem;
+  height: 80%;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.grid-item {
+  border-radius: 10px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.14s ease-in;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.14), 0 4px 2px -3px rgba(0, 0, 0, 0.2),
+    0 2px 6px 0 rgba(0, 0, 0, 0.12);
+}
+
+.grid-item p {
+  margin: 0;
+  color: #d4d4dd;
+  padding-top: 10px;
+  font-size: 12px;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+  opacity: 0.5;
+  cursor: pointer;
+}

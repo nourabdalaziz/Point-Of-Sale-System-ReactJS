@@ -1,0 +1,121 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 45%;
+  margin-left: 2rem;
+  background-color: #ffffff;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  border-radius: 15px;
+  text-align: center;
+  height: 105%;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.14), 0 4px 2px -3px rgba(0, 0, 0, 0.2),
+    0 2px 6px 0 rgba(0, 0, 0, 0.12);
+}
+.cart-items-list {
+  height: 50%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.itemInCart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.itemInCart-nameAndPrice {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+
+.itemInCart-quantity-and-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 20%;
+}
+.itemInCart-quantity-and-buttons i {
+  padding: 0;
+}
+
+.itemInCart-totalPerProduct {
+  width: 15%;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-weight: bold;
+}
+.fa-times-circle {
+  color: rgb(216, 43, 43);
+  padding-top: 0.5rem;
+}
+
+.fa-plus-circle,
+.fa-minus-circle {
+  color: #646cff;
+}
+.cart-tax-disc-total {
+  margin-top: 3.5rem;
+  padding-top: 0.5rem;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.14), 0 4px 2px -3px rgba(0, 0, 0, 0.2),
+    0 2px 6px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.cart-input-container {
+  display: flex;
+  padding-bottom: 0.4rem;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-weight: bold;
+}
+
+.cart-input-field {
+  width: 10%;
+  height: 15px;
+  border: 1px solid #c4c2c2;
+  font-size: 12px;
+  text-align: left;
+  color: black;
+  background-color: transparent;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 5px;
+}
+.cart-input-field::placeholder {
+  text-align: right;
+}
+
+.cart-total-sum {
+  color: #15ac42;
+  font-weight: bold;
+  border-top: 1px solid rgba(0, 0, 0, 0.14);
+}
+.cart-checkout-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-checkout-btns button {
+  width: 100%;
+  padding: 6px 8px;
+  background-color: #646cff;
+  color: #fff;
+  border: 1px solid #646cff;
+  cursor: pointer;
+}
+
+.cart-checkout-btns button:first-child {
+  border-bottom-left-radius: 15px;
+  border-right: 1px solid #fff;
+}
+.cart-checkout-btns button:last-child {
+  border-bottom-right-radius: 15px;
+}
