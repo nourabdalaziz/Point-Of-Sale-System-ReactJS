@@ -29,7 +29,7 @@ const App = () => {
   useEffect(() => {
     products && setProductsContext(products);
     categories && setCategContext(categories);
-  }, [products, categories]);
+  }, [products, categories, needToRefreshCategData, needToRefreshProductsData]);
 
   const RequireAuth = ({ children }) => {
     return user ? children : <Navigate to="/login" />;
