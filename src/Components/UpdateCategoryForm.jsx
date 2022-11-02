@@ -5,12 +5,9 @@ import useCUD from "../CustomHooks/useCUD.jsx";
 import FetchedDataContext from "../Contexts/FetchedDataContext.jsx";
 import { useContext } from "react";
 
-const UpdateProductForm = ({
-  closeModal,
- 
-  id,
-}) => {
-  const { categContext, needToRefreshData, setNeedToRefreshData } = useContext(FetchedDataContext);
+const UpdateProductForm = ({ closeModal, id }) => {
+  const { categContext, needToRefreshCategData, setNeedToRefreshCategData } =
+    useContext(FetchedDataContext);
   const selectedRow = categContext.filter((item) => item.id === id)[0];
   const initialValues = {
     name: selectedRow.name,
@@ -21,7 +18,6 @@ const UpdateProductForm = ({
   });
 
   const onSubmit = (values) => {
-    console.log(id);
     const dataToSend = {
       name: values.name,
     };
@@ -35,7 +31,7 @@ const UpdateProductForm = ({
       .then((res) => res.json())
       .then(() => {
         closeModal();
-        setNeedToRefreshData(!needToRefreshData);
+        setNeedToRefreshCategData(!needToRefreshCategData);
       });
   };
 
