@@ -57,7 +57,6 @@ const UpdateProductForm = ({ closeModal, id }) => {
       .then(() => {
         closeModal();
         setNeedToRefreshProductsData(!needToRefreshProductsData);
-        setNeedToRefreshCategData(!needToRefreshCategData);
       });
   };
 
