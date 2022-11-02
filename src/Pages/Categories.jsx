@@ -10,22 +10,17 @@ import FetchedDataContext from "../Contexts/FetchedDataContext.jsx";
 const Categories = () => {
   const {
     categContext,
-    needToRefreshData,
-    setNeedToRefreshData,
+    setCategContext,
     isLoadingCategs,
+    productsContext,
+    setProductsContext,
   } = useContext(FetchedDataContext);
   const [searchedValue, setSearchedValue] = useState("");
   const [showAddCategoryModal, setShowAddCategoryModal] = useState(false);
   const [showUpdateCategoryModal, setShowUpdateCategoryModal] = useState(false);
-
   const HEADERS = ["name"];
   const idToUpdate = useRef(0);
 
-  // useEffect(() => {
-  //   console.log(categoriesData);
-  //   setCategoriesData(categories);
-  // }, [categories]);
-  console.log(categContext);
   const handleDeleteCategory = (categoryId) => {
     console.log(categoryId, "..");
     const prom = useCUD(
@@ -35,12 +30,20 @@ const Categories = () => {
       categoryId
     );
 
-    prom
-      .then((res) => res.json())
-      .then((res) => {
-        setNeedToRefreshData(!needToRefreshData);
-        console.log(res);
+    prom.then(() => {
+      let categToDelete = "";
+      const filteredCategs = categContext.filter((categ) => {
+        if (categ.id === categoryId) {
+          categToDelete = categ.name;
+          return false;
+        }
+        return true;
       });
+      setCategContext(filteredCategs);
+      setProductsContext(
+        productsContext.filter((product) => product.category !== categToDelete)
+      );
+    });
   };
 
   const toggleshowAddCategoryModal = () => {
