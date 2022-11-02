@@ -3,6 +3,7 @@ import FetchedDataContext from "../Contexts/FetchedDataContext.jsx";
 import LoadingSpinner from "../Components/LoadingSpinner.jsx";
 import FilterableGrid from "../Components/FilterableGrid.jsx";
 import Cart from "../Components/Cart.jsx";
+import Navbar from "../Components/Navbar.jsx";
 
 const POS = () => {
   const { productsContext, isLoadingProducts, categContext } =
@@ -98,6 +99,7 @@ const POS = () => {
         <LoadingSpinner />
       ) : (
         <>
+          <Navbar />
           <div className="pos-main-container">
             <div className="search-grid-container">
               <input

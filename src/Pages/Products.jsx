@@ -6,6 +6,7 @@ import AddProductForm from "../Components/AddProductForm.jsx";
 import UpdateProductForm from "../Components/UpdateProductForm.jsx";
 import FetchedDataContext from "../Contexts/FetchedDataContext.jsx";
 import useCUD from "../CustomHooks/useCUD.jsx";
+import Navbar from "../Components/Navbar.jsx";
 
 const Products = () => {
   const { productsContext, setProductsContext, isLoadingProducts } =
@@ -47,6 +48,7 @@ const Products = () => {
       ) : (
         productsContext && (
           <>
+            <Navbar />
             <div className="main-wrapper-products">
               <div className="search-and-button">
                 <button

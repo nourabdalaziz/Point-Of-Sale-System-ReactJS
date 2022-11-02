@@ -6,6 +6,7 @@ import Modal from "../Components/Modal.jsx";
 import AddCategoryForm from "../Components/AddCategoryForm.jsx";
 import UpdateCategoryForm from "../Components/UpdateCategoryForm.jsx";
 import FetchedDataContext from "../Contexts/FetchedDataContext.jsx";
+import Navbar from "../Components/Navbar.jsx";
 
 const Categories = () => {
   const {
@@ -22,7 +23,6 @@ const Categories = () => {
   const idToUpdate = useRef(0);
 
   const handleDeleteCategory = (categoryId) => {
-    console.log(categoryId, "..");
     const prom = useCUD(
       `http://localhost:5000/categories/`,
       "DELETE",
@@ -62,6 +62,7 @@ const Categories = () => {
       ) : (
         categContext && (
           <>
+            <Navbar />
             <div className="main-wrapper-categories">
               <div className="search-and-button">
                 <button
