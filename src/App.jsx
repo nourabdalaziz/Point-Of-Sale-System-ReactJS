@@ -8,18 +8,21 @@ import { useState, useEffect } from "react";
 import useFetch from "./CustomHooks/useFetch.jsx";
 
 const App = () => {
-  const [needToRefreshData, setNeedToRefreshData] = useState(false);
+  const [needToRefreshProductsData, setNeedToRefreshProductsData] =
+    useState(false);
+  const [needToRefreshCategData, setNeedToRefreshCategData] = useState(false);
   const [productsContext, setProductsContext] = useState([]);
   const [categContext, setCategContext] = useState([]);
 
   const [products, isLoadingProducts] = useFetch(
     "http://localhost:5000/products",
-    needToRefreshData
+    needToRefreshProductsData
   );
+  
 
   const [categories, isLoadingCategs] = useFetch(
     "http://localhost:5000/categories",
-    needToRefreshData
+    needToRefreshCategData
   );
 
   useEffect(() => {
@@ -32,12 +35,14 @@ const App = () => {
       value={{
         productsContext,
         setProductsContext,
-        needToRefreshData,
-        setNeedToRefreshData,
+        needToRefreshProductsData,
+        setNeedToRefreshProductsData,
         isLoadingProducts,
         categContext,
         setCategContext,
         isLoadingCategs,
+        needToRefreshCategData,
+        setNeedToRefreshCategData,
       }}
     >
       <BrowserRouter>
