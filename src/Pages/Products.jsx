@@ -8,12 +8,8 @@ import FetchedDataContext from "../Contexts/FetchedDataContext.jsx";
 import useCUD from "../CustomHooks/useCUD.jsx";
 
 const Products = () => {
-  const {
-    productsContext,
-    needToRefreshData,
-    setNeedToRefreshData,
-    isLoadingProducts,
-  } = useContext(FetchedDataContext);
+  const { productsContext, setProductsContext, isLoadingProducts } =
+    useContext(FetchedDataContext);
   const [searchedValue, setSearchedValue] = useState("");
   const [showAddProductModal, setShowAddProductModal] = useState(false);
   const [showUpdateProductModal, setShowUpdateProductModal] = useState(false);
@@ -28,12 +24,11 @@ const Products = () => {
       productID
     );
 
-    prom
-      .then((res) => res.json())
-      .then((res) => {
-        setNeedToRefreshData(!needToRefreshData);
-        console.log(res);
-      });
+    prom.then(() => {
+      setProductsContext(
+        productsContext.filter((product) => product.id !== productID)
+      );
+    });
   };
 
   const toggleShowAddProductModal = () => {
