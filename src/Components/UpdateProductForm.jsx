@@ -8,8 +8,8 @@ import { useContext } from "react";
 const UpdateProductForm = ({ closeModal, id }) => {
   const {
     productsContext,
-    needToRefreshData,
-    setNeedToRefreshData,
+    needToRefreshProductsData,
+    setNeedToRefreshProductsData,
     categContext,
   } = useContext(FetchedDataContext);
   const selectedRow = productsContext.filter((item) => item.id === id)[0];
@@ -36,7 +36,6 @@ const UpdateProductForm = ({ closeModal, id }) => {
   });
 
   const onSubmit = (values) => {
-    console.log(id);
     const dataToSend = {
       code: values.code,
       name: values.name,
@@ -55,7 +54,7 @@ const UpdateProductForm = ({ closeModal, id }) => {
       .then((res) => res.json())
       .then(() => {
         closeModal();
-        setNeedToRefreshData(!needToRefreshData);
+        setNeedToRefreshProductsData(!needToRefreshProductsData);
       });
   };
 
