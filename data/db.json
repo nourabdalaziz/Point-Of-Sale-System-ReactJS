@@ -1,90 +1,98 @@
 {
   "products": [
     {
+      "code": "1",
+      "name": "Cucumber",
+      "category": "Vegetables",
+      "price": "15",
+      "image": "https://purepng.com/public/uploads/large/purepng.com-cucumbercucumberfoodvegetablegreen-cucumber-17015272508067ypbj.png",
+      "id": "a4a23ac1-7198-4f89-8cc1-b2f0e2d84004"
+    },
+    {
       "code": "2",
-      "name": "Banana",
+      "name": "Oranges",
       "category": "Fruits",
-      "price": 5,
-      "image": "https://purepng.com/public/uploads/large/three-bananas-uv1.png",
-      "id": "82f39b5d-fb43-486e-8efc-747b57f19f7e"
+      "price": "15",
+      "image": "https://freepngimg.com/thumb/avocado/41736-1-half-orange-hd-hd-image-free-png.png",
+      "id": "196755ea-5de0-457c-92cd-f04bc3db0e8c"
     },
     {
       "code": "3",
-      "name": "Strawberry",
-      "category": "Fruits",
-      "price": "15",
-      "image": "https://purepng.com/public/uploads/large/purepng.com-strawberrystrawberrygenus-fragariastrawberriesfruitbotanical-berrybright-red-colorjuicy-texture-1701527398814xm3ju.png",
-      "id": "2b86eb4d-732d-4eb2-a7c1-9e2f13fe2516"
+      "name": "Tomato",
+      "category": "Vegetables",
+      "price": "18",
+      "image": "https://purepng.com/public/uploads/large/purepng.com-tomatotomatotomatossalad-fruitred-fruit-1701527316031ytkdc.png",
+      "id": "3413fd71-dc62-4115-a716-1caf64550419"
     },
     {
       "code": "4",
-      "name": "Blueberry",
-      "category": "Fruits",
-      "price": 5,
-      "image": "https://purepng.com/public/uploads/large/purepng.com-blueberryberryfruitdeliciousdrawingblueberry-33152234542505pip.png",
-      "id": "7cf7996d-1d1b-447f-b931-05fdfd356570"
+      "name": "Potato",
+      "category": "Vegetables",
+      "price": "8",
+      "image": "https://purepng.com/public/uploads/large/purepng.com-potatopotatofood-cropsvegetablepotatos-1701527311051rn2f4.png",
+      "id": "c365c654-5b3f-4b0f-ae7c-18ad28a671b4"
     },
     {
-      "code": "5",
-      "name": "Oranges",
+      "code": "10",
+      "name": "Apple",
       "category": "Fruits",
-      "price": 5,
-      "image": "https://purepng.com/public/uploads/large/purepng.com-orange-orangesorangefruitbitter-orangeorangesclip-art-1701527336951ldrwe.png",
-      "id": "5535564a-d007-43b4-9361-f2a5ccb7362a"
+      "price": "5",
+      "image": "https://purepng.com/public/uploads/large/purepng.com-applesapplegreenhealthycut-641522015599w2vt3.png",
+      "id": "d5e8b7c7-3f95-4d59-82c5-ce37e06d9c25"
     },
     {
       "code": "6",
-      "name": "Chocolate Cake",
-      "category": "Sweets",
-      "price": 5,
-      "image": "https://purepng.com/public/uploads/large/purepng.com-chocolate-cakechocolatechocolate-cakecakechocolate-gateausweet-1411527232105biakj.png",
-      "id": "6a0ac1c9-ab3b-479b-a664-bb27e2718843"
+      "name": "Strawberry",
+      "category": "Fruits",
+      "price": "5",
+      "image": "https://purepng.com/public/uploads/large/purepng.com-strawberrystrawberrygenus-fragariastrawberriesfruitbotanical-berrybright-red-colorjuicy-texture-1701527398814xm3ju.png",
+      "id": "c22887a5-3680-4e04-99de-585382efd47d"
     },
     {
       "code": "7",
-      "name": "Potato",
-      "category": "Vegetables",
-      "price": 5,
-      "image": "https://th.bing.com/th/id/R.7c2462a089e6415378ff3d93d9146352?rik=29DbRxtI144LJw&pid=ImgRaw&r=0",
-      "id": "4d438d11-e434-4f88-8b49-63e82b9a4865"
-    },
-    {
-      "code": "1",
       "name": "Lemon",
       "category": "Vegetables",
       "price": "5",
-      "image": "https://th.bing.com/th/id/R.7dd4971597e09c25b654495f980cd9b0?rik=lQvXt2NFa2xB8g&pid=ImgRaw&r=0",
-      "id": "66646c10-6a6e-4ff7-8dc0-46c6d222f847"
+      "image": "https://purepng.com/public/uploads/large/purepng.com-lemonlemonfruittastyyellowfoodadd-331522507459yya95.png",
+      "id": "65ff1124-1d5e-4754-aa01-8b638ef97a39"
     },
     {
-      "code": "156",
-      "name": "test",
-      "category": "Vegetables",
-      "price": "15",
-      "image": "https://th.bing.com/th/id/R.7c2462a089e6415378ff3d93d9146352?rik=29DbRxtI144LJw&pid=ImgRaw&r=0",
-      "id": "6c37e0b3-635e-4ea0-946b-590f92c901a1"
+      "code": "14",
+      "name": "Chocolate Cake",
+      "category": "Cakes",
+      "price": "55",
+      "image": "https://purepng.com/public/uploads/large/purepng.com-chocolate-cakechocolatechocolate-cakecakechocolate-gateausweet-1411527232001hyk12.png",
+      "id": "a16fa7e2-0615-4dd9-8f9f-9233c4e617f9"
+    },
+    {
+      "code": "155",
+      "name": "Meat",
+      "category": "Meat",
+      "price": "70",
+      "image": "https://purepng.com/public/uploads/large/purepng.com-meatmeatanimalfleshchicken-1411527788021fjgtk.png",
+      "id": "47f7aeaf-1353-45b2-a8bd-bf6d19244810"
     }
   ],
   "categories": [
     {
       "name": "Fruits",
-      "id": "84f77894-2896-46f3-bf63-2dbff0702d09"
+      "id": "b7578b60-ef8f-4adc-bb16-dc34961c7b8b"
     },
     {
       "name": "Vegetables",
-      "id": "9a5b8eda-2147-4460-9a94-7f0d31b8dc19"
-    },
-    {
-      "name": "Drinks",
-      "id": "da02ec22-52ba-49b7-a326-f617c50a8eda"
-    },
-    {
-      "name": "Sweets",
-      "id": "a7d2bc63-6f05-45bc-963a-bbdb08e682ae"
+      "id": "eeff9bbd-f79b-4695-92f9-11f6bc58263c"
     },
     {
       "name": "Cakes",
-      "id": "02a4d155-98e0-45f5-a7f6-06ff4c0fe3e0"
+      "id": "9fd0a76d-c18e-483c-88dc-04093a9dc12b"
+    },
+    {
+      "name": "Meat",
+      "id": "bd024418-d130-48b2-95dd-d52021e261e8"
+    },
+    {
+      "name": "Drinks",
+      "id": "2b23ca1c-c1cb-4927-bae6-66186d45f834"
     }
   ]
 }
