@@ -40,9 +40,20 @@ const Categories = () => {
         return true;
       });
       setCategContext(filteredCategs);
-      setProductsContext(
-        productsContext.filter((product) => product.category !== categToDelete)
-      );
+
+      const filteredProd = productsContext.filter((product) => {
+        if (product.category === categToDelete) {
+          const prom = useCUD(
+            `http://localhost:5000/products/`,
+            "DELETE",
+            "",
+            product.id
+          );
+          return false;
+        }
+        return true;
+      });
+      setProductsContext(filteredProd);
     });
   };
 
