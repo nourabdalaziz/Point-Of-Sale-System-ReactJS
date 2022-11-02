@@ -2,10 +2,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Categories from "./Pages/Categories.jsx";
 import POS from "./Pages/POS.jsx";
 import Products from "./Pages/Products.jsx";
-import Navbar from "./Components/Navbar.jsx";
 import FetchedDataContext from "./Contexts/FetchedDataContext.jsx";
 import { useState, useEffect } from "react";
 import useFetch from "./CustomHooks/useFetch.jsx";
+import LoginForm from "./Components/LoginForm.jsx";
+import { Navigate } from "react-router-dom";
 
 const App = () => {
   const [needToRefreshProductsData, setNeedToRefreshProductsData] =
@@ -13,12 +14,12 @@ const App = () => {
   const [needToRefreshCategData, setNeedToRefreshCategData] = useState(false);
   const [productsContext, setProductsContext] = useState([]);
   const [categContext, setCategContext] = useState([]);
+  const [user, setUser] = useState("");
 
   const [products, isLoadingProducts] = useFetch(
     "http://localhost:5000/products",
     needToRefreshProductsData
   );
-  
 
   const [categories, isLoadingCategs] = useFetch(
     "http://localhost:5000/categories",
@@ -29,6 +30,10 @@ const App = () => {
     products && setProductsContext(products);
     categories && setCategContext(categories);
   }, [products, categories]);
+
+  const RequireAuth = ({ children }) => {
+    return user ? children : <Navigate to="/login" />;
+  };
 
   return (
     <FetchedDataContext.Provider
@@ -46,12 +51,40 @@ const App = () => {
       }}
     >
       <BrowserRouter>
-        <Navbar />
         <Routes>
-          <Route path="/" element={<POS />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/pos" element={<POS />} />
+          <Route path="/login" element={<LoginForm setUser={setUser} />} />
+          <Route
+            path="/"
+            element={
+              <RequireAuth>
+                <POS />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/categories"
+            element={
+              <RequireAuth>
+                <Categories />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/products"
+            element={
+              <RequireAuth>
+                <Products />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/pos"
+            element={
+              <RequireAuth>
+                <POS />
+              </RequireAuth>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </FetchedDataContext.Provider>
