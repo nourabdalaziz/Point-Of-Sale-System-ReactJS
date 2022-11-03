@@ -6,8 +6,14 @@ import FetchedDataContext from "../Contexts/FetchedDataContext.jsx";
 import { useContext } from "react";
 
 const UpdateProductForm = ({ closeModal, id }) => {
-  const { categContext, needToRefreshCategData, setNeedToRefreshCategData } =
-    useContext(FetchedDataContext);
+  const {
+    categContext,
+    needToRefreshCategData,
+    setNeedToRefreshCategData,
+    setNeedToRefreshProductsData,
+    needToRefreshProductsData,
+    productsContext,
+  } = useContext(FetchedDataContext);
   const selectedRow = categContext.filter((item) => item.id === id)[0];
   const initialValues = {
     name: selectedRow.name,
@@ -32,6 +38,28 @@ const UpdateProductForm = ({ closeModal, id }) => {
       .then(() => {
         closeModal();
         setNeedToRefreshCategData(!needToRefreshCategData);
+      })
+      .then(() => {
+        productsContext.forEach((product) => {
+          if (product.category === selectedRow.name) {
+            const productToUpdateAfterCateg = {
+              code: product.code,
+              name: product.name,
+              category: values.name,
+              price: product.price,
+              image: product.image,
+            };
+            const prom = useCUD(
+              `http://localhost:5000/products/`,
+              "PUT",
+              productToUpdateAfterCateg,
+              product.id
+            );
+            prom.then(() => {
+              setNeedToRefreshProductsData(!needToRefreshProductsData);
+            });
+          }
+        });
       });
   };
 
