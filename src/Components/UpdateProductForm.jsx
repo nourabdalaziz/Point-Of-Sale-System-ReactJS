@@ -10,8 +10,6 @@ const UpdateProductForm = ({ closeModal, id }) => {
     productsContext,
     needToRefreshProductsData,
     setNeedToRefreshProductsData,
-    needToRefreshCategData,
-    setNeedToRefreshCategData,
     categContext,
   } = useContext(FetchedDataContext);
   const selectedRow = productsContext.filter((item) => item.id === id)[0];
