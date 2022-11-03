@@ -41,7 +41,8 @@ increase or decrease the quantity of any product in the cart or delete it totall
 - #### Categories Page
 
 In this page, the admin will be able to add, delete and update the categories of his inventory with an easy, user-friendly and convenient user interface.
-He will be able to search for a specified category using the search bar. As he is typing in the search bar, the results will be more specific and changed synchronously.
+He will be able to search for a specified category using the search bar. As he is typing in the search bar, the results will be more specific and changed synchronously.       
+    
 Deleting a category, will automatically delete all the products related to this category, so products and pos pages will be updated directly.  
 Updating a category will also automatically update all products related to this category in products and POS pages.
 
