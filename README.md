@@ -7,7 +7,8 @@
 # Point Of Sale System 
 
 ## Introduction
-<p>A POS application system is a tool tht let you manage sales inventory and accept payments from customers.</p>
+A POS application system is a tool that let you manage sales inventory and accept payments from customers.   
+This system will help its owners to manage their sales in such a convenient way. It provides the ability to add, delete, update products and categories with full managing of cart.
 <br>
 
 
