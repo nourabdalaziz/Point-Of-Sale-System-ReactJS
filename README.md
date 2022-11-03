@@ -13,6 +13,8 @@
 
 ## Technologies 
 
+<img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" width="40" height="40"/> <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-official.svg" width="40" height="40"/> <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" width="40" height="40"/>
+
 ## Features and Views                                  
 
 - #### Login Page
@@ -60,5 +62,11 @@ He will be able to search for a specified product with its name, code, category 
 </div>
 
 
+## How to set up the project
 
+- Clone this respository to your computer
+- Access to the project folder on the computer via Termaial or Git Bash
+- Excute `npm install` to download all necessary packages
+- Execute ` npx json-server --watch data/db.json --port 5000` to start the json server
+- Excute `npm run dev` to start the project
 
