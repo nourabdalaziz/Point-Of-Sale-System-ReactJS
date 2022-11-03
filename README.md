@@ -13,7 +13,7 @@
 
 ## Technologies 
 
-<img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" width="40" height="40"/> <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-official.svg" width="40" height="40"/> <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" width="40" height="40"/>
+<img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" width="40" height="40"/> <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-official.svg" width="40" height="40"/> <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" width="40" height="40"/> <img src="https://user-images.githubusercontent.com/4060187/61057426-4e5a4600-a3c3-11e9-9114-630743e05814.png" width="40" height="40"/>
 
 ## Features and Views                                  
 
