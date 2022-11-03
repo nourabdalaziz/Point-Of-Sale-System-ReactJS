@@ -5,7 +5,7 @@ import useCUD from "../CustomHooks/useCUD.jsx";
 import FetchedDataContext from "../Contexts/FetchedDataContext.jsx";
 import { useContext } from "react";
 
-const UpdateProductForm = ({ closeModal, id }) => {
+const UpdateCategoryForm = ({ closeModal, id }) => {
   const {
     categContext,
     needToRefreshCategData,
@@ -96,4 +96,4 @@ const UpdateProductForm = ({ closeModal, id }) => {
     </Formik>
   );
 };
-export default UpdateProductForm;
+export default UpdateCategoryForm;
