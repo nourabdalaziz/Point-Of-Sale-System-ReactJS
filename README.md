@@ -53,7 +53,9 @@ Updating a category will also automatically update all products related to this 
 
 The following form will come up when the admin clicks on Add-Category button to add a new category to the categories table. On bluring, the field will be checked if it is filled or not (it is required field). If not, then a red messege will appear under the field showing that the field is required.   
 
-The same form will pop up when clicking on updating icon for a specific category but the field will be filled with the selected category data as initial values.
+The same form will pop up when clicking on updating icon for a specific category but the field will be filled with the selected category data as initial values.     
+
+Submitting the form will add anew category to the table and cancelling the process by clicking on 'cancel' button will close the pop up form with no changes occured on the table. 
 
 <div align="center">
     <img src="https://user-images.githubusercontent.com/108607595/200154464-d8741d03-50fc-457e-9124-e653c49e735e.PNG" width ="60%"/>
@@ -75,7 +77,10 @@ He will be able to search for a specified product with its name, code, category 
 The following form will come up when the admin clicks on Add-Product button to add a new product to the products table. On bluring, the fields will be checked if it is filled or not (they're required). If not, then a red messege will appear under the field showing that the field is required. 
 Code and price fields will also be checked for containing only positive number, and image url will be checked for containing a valid url.
 
-The same form will pop up when clicking on updating icon for a specific product but the fields will be filled with the selected product data as initial values.
+The same form will pop up when clicking on updating icon for a specific product but the fields will be filled with the selected product data as initial values.    
+
+Submitting the form will add anew product to the table and cancelling the process by clicking on 'cancel' button will close the pop up form with no changes occured on the table. 
+
 
 <div align="center">
     <img src="https://user-images.githubusercontent.com/108607595/200154651-ffd969ec-7a4a-4b26-b621-5aef770d5d98.PNG" width ="60%"/>
