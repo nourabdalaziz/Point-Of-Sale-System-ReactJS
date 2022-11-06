@@ -51,6 +51,13 @@ Updating a category will also automatically update all products related to this 
    <img src="https://user-images.githubusercontent.com/108607595/199691744-5dcbd953-9fe8-42e8-8062-c4a1e9f8c41e.PNG" width ="60%"/>
 </div>
 
+The following form will come up when the admin clicks on Add-Category button to add a new category to the categories table. On bluring, the field will be checked if it is filled or not (it is required field). If not, then a red messege will appear under the field showing that the field is required.   
+
+The same form will pop up when clicking on updating icon for a specific category but the field will be filled with the selected category data as initial values.
+
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/108607595/200154464-d8741d03-50fc-457e-9124-e653c49e735e.PNG" width ="60%"/>
+</div>
 <br>
 <br>
 <br>
@@ -62,7 +69,18 @@ He will be able to search for a specified product with its name, code, category 
 
 <div align="center">
    <img src="https://user-images.githubusercontent.com/108607595/199692826-5aa57ba5-cbab-4bba-a623-c1b1c4880988.PNG" width ="60%"/>
+</div>     
+
+
+The following form will come up when the admin clicks on Add-Product button to add a new product to the products table. On bluring, the fields will be checked if it is filled or not (they're required). If not, then a red messege will appear under the field showing that the field is required. 
+Code and price fields will also be checked for containing only positive number, and image url will be checked for containing a valid url.
+
+The same form will pop up when clicking on updating icon for a specific product but the fields will be filled with the selected product data as initial values.
+
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/108607595/200154651-ffd969ec-7a4a-4b26-b621-5aef770d5d98.PNG" width ="60%"/>
 </div>
+
 
 
 ## How to set up the project
