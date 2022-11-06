@@ -74,8 +74,8 @@ He will be able to search for a specified product with its name, code, category 
 </div>     
 
 
-The following form will come up when the admin clicks on Add-Product button to add a new product to the products table. On bluring, the fields will be checked if it is filled or not (they're required). If not, then a red messege will appear under the field showing that the field is required. 
-Code and price fields will also be checked for containing only positive number, and image url will be checked for containing a valid url.
+The following form will come up when the admin clicks on Add-Product button to add a new product to the products table. On bluring, the fields will be checked if they are filled or not (they're required). If not, then a red messege will appear under the unfilled field showing that the field is required. 
+Code and price fields will also be checked for containing only positive number, and image url field will be checked for containing a valid url.
 
 The same form will pop up when clicking on updating icon for a specific product but the fields will be filled with the selected product data as initial values.    
 
