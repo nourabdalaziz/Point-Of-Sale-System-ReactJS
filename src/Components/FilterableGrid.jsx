@@ -1,7 +1,13 @@
 import "./Components_Styles/filterableGrid.css";
+import Pagination from "./Pagination.jsx";
+import { useState } from "react";
 
 const GridLayout = ({ dataInGrid, searchedValue, addItemToCart }) => {
   let currentItems = dataInGrid;
+  let totalItems = dataInGrid.length;
+  const itemsPerPage = 4;
+  let [currentPage, setCurrentPage] = useState(1);
+  const pageNumbers = [];
 
   function isURL(str) {
     var pattern = new RegExp(
@@ -32,23 +38,40 @@ const GridLayout = ({ dataInGrid, searchedValue, addItemToCart }) => {
     }
     return res;
   });
+
   if (searchedValue !== null && searchedValue !== "") {
     currentItems = filteredRows;
+    totalItems = filteredRows.length;
+  }
+
+  for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
+    pageNumbers.push(i);
   }
   return (
     <div className="grid-container">
-      {currentItems.map((item) => (
-        <div
-          key={item.id}
-          className="grid-item"
-          onClick={() => addItemToCart(item)}
-        >
-          <p> {item.code}</p>
-          <h4> {item.name}</h4>
-          <img src={item.image} style={{ height: "60px", width: "60px" }} />
-          <h6> {item.category}</h6>
-        </div>
-      ))}
+      {currentItems
+        .filter((row, index) => {
+          let start = (currentPage - 1) * itemsPerPage;
+          let end = currentPage * itemsPerPage;
+          if (index >= start && index < end) return true;
+        })
+        .map((item) => (
+          <div
+            key={item.id}
+            className="grid-item"
+            onClick={() => addItemToCart(item)}
+          >
+            <p> {item.code}</p>
+            <h4> {item.name}</h4>
+            <img src={item.image} style={{ height: "60px", width: "60px" }} />
+            <h6> {item.category}</h6>
+          </div>
+        ))}
+      <Pagination
+        currentPage={currentPage}
+        pageNumbers={pageNumbers}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 };
