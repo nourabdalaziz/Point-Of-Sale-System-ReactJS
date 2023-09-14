@@ -22,6 +22,10 @@ This system will help its owners to manage their sales in such a convenient way.
 
  This is the page that will appear for the admin when he opens the website to access the system. Incorrect email or password will display an error until you enter the correct credentials.
 
+ Login Credentials: 
+     - email:  admin@pos.com
+     - password:  123456
+
 <img src="https://user-images.githubusercontent.com/108607595/199681786-22f351ff-dccb-49c9-8a11-7b0fe581de72.PNG" width ="40%"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://user-images.githubusercontent.com/108607595/199684780-90d0ce5e-1010-4862-9627-c0230560648d.PNG" width ="40%" />
 
 <br>
